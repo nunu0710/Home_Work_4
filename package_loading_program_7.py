@@ -57,12 +57,22 @@ if number_of_items.isdigit():
         print("\n\t  In Summary\n\n")
 
     #print(unused_capacity) # printing the list of unsed capacity per package respectively
-    print(len(unused_capacity))
-    package_with_max_unused_capacity = max(unused_capacity)
-    package_with_max_unused_capacity = unused_capacity.index(max(unused_capacity))
+    #print(len(unused_capacity))
+    for i in unused_capacity:
+        
+        if all(item == unused_capacity[0] for item in unused_capacity):
+           print("All packages have the same unused capacity\n")
+           break
+        else:
+            package_with_max_unused_capacity = max(unused_capacity)
+
+            package_with_max_unused_capacity = unused_capacity.index(max(unused_capacity))
+            print(f"The package with the maximum Unused Capacity is Package number '{package_with_max_unused_capacity + 1}'\n")
+            break
+        
     print(f"Total Weight of all sent Packages is {total_package_weight_sent} KG\n")
     print(f"Total number of Packages sent is {sent_package_number} Package(s)\n")
-    print(f"The package with the maximum Unused Capacity is Package number '{package_with_max_unused_capacity + 1}'\n")
+    #print(f"The package with the maximum Unused Capacity is Package number '{package_with_max_unused_capacity + 1}'\n")
     unused_capacity = (sent_package_number * 20 ) - total_package_weight_sent
     print(f"Total Unused Capacity ia {unused_capacity} KG\n")
 
